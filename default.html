@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript">
+        var jsilConfig = {
+            manifests: ["./OPUS/HC.OPUS.HTML5.dll"],
+            scriptRoot: "./OPUS/",
+            libraryRoot: "./Libraries/",
+            showProgressBar: true,
+            showFullscreenButton: false,
+        };
+    </script>
+
+    <script src="./Libraries/JSIL.js" type="text/javascript"></script>
+</head>
+
+<body onload="onLoad()">
+    <div id="jsilRegion">
+        <div id="log" style="font-family: Consolas, Courier New, monospace"></div>
+        <div id="loadingProgress"></div>
+        <script type="text/javascript">
+            function runMain() {
+                document.getElementById("log").innerHTML = "";
+
+                var asm = JSIL.GetAssembly("HC.OPUS.HTML5, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null");
+                asm.HC.OPUS.HTML5.JsOpusApp.Main();
+            }
+        </script>
+    </div>
+</body>
+</html>
